@@ -1,0 +1,13 @@
+{
+  "name": "spring_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@ghe.valuecommerce.com:yishiguro/spring_test.git",
+  "author": "yishiguro <yishiguro@valuecommerce.co.jp>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  }
+}
