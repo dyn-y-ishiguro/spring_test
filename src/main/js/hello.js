@@ -1,3 +1,5 @@
+import './common.js';
+
 function hello1() {
     console.log("hello1!");
 };
