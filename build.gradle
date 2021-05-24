@@ -22,3 +22,14 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+task yarnInstall(type:Exec) {
+	commandLine 'yarn', 'install'
+}
+
+task yarnWebpack(type:Exec) {
+	dependsOn 'yarnInstall'
+	commandLine 'yarn', 'webpack', '--mode', 'development'
+}
+
+bootRun.dependsOn 'yarnWebpack'
