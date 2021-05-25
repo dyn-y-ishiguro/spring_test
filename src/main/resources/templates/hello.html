@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <title>Hello Thymeleaf</title>
         <script type="text/javascript" src="/js/vendor.bundle.js" th:src="@{/js/vendor.bundle.js}"></script>
-        <script type="text/javascript" src="/js/hello.bundle.js" th:src="@{/js/hello.bundle.js}"></script>
+        <script type="text/javascript" src="/js/hello.bundle.js" th:src="@{/js/hello.bundle.js}" defer></script>
     </head>
     <body>
         <h1 th:text="hogehoge"></h1>
@@ -13,13 +13,21 @@
         <h1 th:text="#{hello('fugafuga')}"></h1>
         <h1 th:text="#{hello(${name})}"></h1>
         <form method="get">
-          <select name="lang" onchange="submit(this.form)">
-            <option th:value="ja" th:selected="${lang=='ja'}">日本語</option>
-            <option th:value="en" th:selected="${lang=='en'}">English</option>
-          </select>
+            <select name="lang" onchange="submit(this.form)">
+                <option th:value="ja" th:selected="${lang=='ja'}">日本語</option>
+                <option th:value="en" th:selected="${lang=='en'}">English</option>
+            </select>
         </form>
         <input type="button" id="hello1" value="クリック1" />
         <input type="button" id="hello2" value="クリック2" onclick="hello2();" />
         <input type="button" id="hello3" value="クリック3" onclick="hello3();" />
+        <div id="vue">
+          <div v-text="hello"></div>
+          <div v-text="color.apple"></div>
+          <div v-text="number[2]"></div>
+          <input type="text" v-model="message">
+          <p v-text="message"></p>
+          <component-test></component-test>
+        </div>
     </body>
 </html>
