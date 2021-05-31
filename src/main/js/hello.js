@@ -1,21 +1,22 @@
 import './common.js';
 import Vue from 'vue';
 import i18next from 'i18next';
+import VueI18Next from '@panter/vue-i18next';
 
 function hello1() {
-  console.log(i18next.t("おはよう!"));
+  console.log(i18next.t("greet1"));
 };
 document.getElementById("hello1").onclick = function() {
   hello1();
 };
 
 function hello2() {
-  console.log(i18next.t("こんにちは!"));
+  console.log(i18next.t("greet2"));
 };
 window.hello2 = hello2;
 
 window.hello3 = function() {
-  console.log(i18next.t("こんばんは!"));
+  console.log(i18next.t("greet3"));
 };
 
 function GetCookie(name) {
@@ -40,43 +41,29 @@ function GetCookie(name) {
 }
 
 // for i18next
-window.i18next = i18next;
-
-var en_dic = {
-  'おはよう!': 'good morning',
-  'こんにちは!': 'hello',
-  'こんばんは!': 'good evening',
-  'ハロー、VueJS!': 'Hello VueJS!',
-  'クリック回数': 'click count',
-};
-
-var ja_dic = {
-  'おはよう!': 'おはよう!',
-  'こんにちは!': 'こんにちは!',
-  'こんばんは!': 'こんばんは!',
-  'ハロー、VueJS!': 'ハロー、VueJS!',
-  'クリック回数': 'クリック回数',
-};
+//window.i18next = i18next;
 
 i18next.init(
   {
-    fallbackLng: 'en',
+    fallbackLng: 'ja',
     resources: {}
   }
 );
-i18next.addResources('en', 'translation', en_dic);
 i18next.addResources('ja', 'translation', ja_dic);
+i18next.addResources('en', 'translation', en_dic);
 i18next.changeLanguage(GetCookie('locale'));
+
+Vue.use(VueI18Next);
+const i18n = new VueI18Next(i18next);
 
 // for vue
 var component = {
   data: function(){
     return {
-      'click': i18next.t('クリック回数'),
       'count': 0,
     };
   },
-  template: "<p>{{click}}: {{count}}<button @click='increment'>+1</button></p>",
+  template: "<div><div>{{ $t('click') }}: </div><div>{{count}}</div><button @click='increment'>+1</button></div>",
   methods: {
     increment: function(){
       this.count += 1;
@@ -87,16 +74,17 @@ var component = {
 window.vm = new Vue({
   el: '#vue',
   data: {
-    hello: i18next.t('ハロー、VueJS!'),
+    hello: 'helloVue',
     color: {
-      apple: i18next.t('red'),
-      banana: i18next.t('yellow'),
-      melon: i18next.t('green'),
+      apple: 'red',
+      banana: 'yellow',
+      melon: 'green',
     },
-    number: [i18next.t('zero'), i18next.t('one'), i18next.t('two'), i18next.t('three')],
+    number: ['zero', 'one', 'two', 'three'],
     message: "",
   },
   components: {
     "component-test": component,
   },
+  i18n: i18n,
 });

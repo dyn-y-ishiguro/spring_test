@@ -6,6 +6,7 @@
   "author": "yishiguro <yishiguro@valuecommerce.co.jp>",
   "license": "MIT",
   "dependencies": {
+    "@panter/vue-i18next": "^0.15.2",
     "i18next": "^20.3.0",
     "jquery": "^3.6.0",
     "vue": "^2.6.12"
