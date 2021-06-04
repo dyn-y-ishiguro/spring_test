@@ -51,7 +51,7 @@ var component = {
       'count': 0,
     };
   },
-  template: "<div><div>{{ $t('click') }}: </div><div>{{count}}</div><button @click='increment'>+1</button></div>",
+  template: '<div><div>{{ $t("click") }}: </div><div>{{count}}</div><button @click="increment">+1</button><input v-bind:placeholder="$t(\'click\')"></input></div>',
   methods: {
     increment: function(){
       this.count += 1;

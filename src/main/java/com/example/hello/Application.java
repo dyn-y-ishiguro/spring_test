@@ -1,6 +1,5 @@
 package com.example.hello;
 
-import java.util.Locale;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.MessageSource;
@@ -31,7 +30,6 @@ public class Application implements WebMvcConfigurer {
 	public LocaleResolver localeResolver() {
 		CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
 		cookieLocaleResolver.setCookieName("locale");
-		cookieLocaleResolver.setDefaultLocale(Locale.JAPAN);
 		return cookieLocaleResolver;
 	}
 
