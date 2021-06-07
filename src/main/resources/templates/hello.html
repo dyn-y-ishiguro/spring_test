@@ -8,14 +8,12 @@
         <script type="text/javascript" src="/js/i18next_dic_ja.js" th:src="@{/js/i18next_dic_ja.js}"></script>
         <script type="text/javascript" src="/js/i18next_dic_en.js" th:src="@{/js/i18next_dic_en.js}"></script>
         <script type="text/javascript" src="/js/hello.bundle.js" th:src="@{/js/hello.bundle.js}" defer></script>
-        <script>
-        </script>
     </head>
     <body>
-        <h1 th:text="hogehoge"></h1>
-        <h1 th:text="${message}"></h1>
-        <h1 th:text="#{hello('fugafuga')}"></h1>
-        <h1 th:text="#{hello(${name})}"></h1>
+        <p th:text="hogehoge"></p>
+        <p th:text="${message}"></p>
+        <p th:text="#{hello('fugafuga')}"></p>
+        <p th:text="#{hello(${name})}"></p>
         <form method="get">
             <select name="lang" onchange="submit(this.form)">
                 <option th:value="ja" th:selected="${lang=='ja'}">日本語</option>
@@ -26,9 +24,8 @@
         <input type="button" id="hello2" value="click2" onclick="hello2();" />
         <input type="button" id="hello3" value="click3" onclick="hello3();" />
         <div id="vue">
-          <div v-text="$t('helloVue')"></div>
-          <div v-text="color.apple"></div>
-          <div v-text="number[2]"></div>
+          <p v-text="$t('helloVue')"></p>
+          <p v-text="$t('helloTo', {name: 'world'})"></p>
           <input type="text" v-model="message">
           <p v-text="message"></p>
           <component-test></component-test>

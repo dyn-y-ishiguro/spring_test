@@ -62,13 +62,6 @@ var component = {
 window.vm = new Vue({
   el: '#vue',
   data: {
-    hello: 'helloVue',
-    color: {
-      apple: 'red',
-      banana: 'yellow',
-      melon: 'green',
-    },
-    number: ['zero', 'one', 'two', 'three'],
     message: "",
   },
   components: {
