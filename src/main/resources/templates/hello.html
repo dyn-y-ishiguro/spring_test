@@ -9,19 +9,23 @@
         <script type="text/javascript" src="/js/hello.bundle.js" th:src="@{/js/hello.bundle.js}" defer></script>
     </head>
     <body>
+        <h1>messages.propertiesからの呼び出しテスト</h1>
         <p th:text="hogehoge"></p>
         <p th:text="${message}"></p>
         <p th:text="#{hello('fugafuga')}"></p>
         <p th:text="#{hello(${name})}"></p>
+        <h1>言語切替フォームテスト</h1>
         <form method="get">
             <select name="lang" onchange="submit(this.form)">
                 <option th:value="ja" th:selected="${lang=='ja'}">日本語</option>
                 <option th:value="en" th:selected="${lang=='en'}">English</option>
             </select>
         </form>
+        <h1>i18nextテスト</h1>
         <input type="button" id="hello1" value="click1" />
         <input type="button" id="hello2" value="click2" onclick="hello2();" />
         <input type="button" id="hello3" value="click3" onclick="hello3();" />
+        <h1>vueテスト + vue-i18nextテスト</h1>
         <div id="vue">
           <p v-text="$t('helloVue')"></p>
           <p v-text="$t('helloTo', {name: 'world'})"></p>
