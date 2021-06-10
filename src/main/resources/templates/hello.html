@@ -1,6 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org"
-      th:with="lang=${#locale.language}">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8" />
         <title>Hello Thymeleaf</title>
@@ -17,8 +16,8 @@
         <h1>言語切替フォームテスト</h1>
         <form method="get">
             <select name="lang" onchange="submit(this.form)">
-                <option th:value="ja" th:selected="${lang=='ja'}">日本語</option>
-                <option th:value="en" th:selected="${lang=='en'}">English</option>
+                <option th:value="ja" th:selected="${#locale.language=='ja'}">日本語</option>
+                <option th:value="en" th:selected="${#locale.language=='en'}">English</option>
             </select>
         </form>
         <h1>i18nextテスト</h1>

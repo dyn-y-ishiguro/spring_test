@@ -29,3 +29,5 @@ i18next.use(LanguageDetector).init(
 
 Vue.use(VueI18Next);
 window.i18n = new VueI18Next(i18next);
+
+window.$t = i18next.t.bind(i18next);

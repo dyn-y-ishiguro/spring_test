@@ -1,17 +1,17 @@
 function hello1() {
-  console.log(i18next.t("greet1"));
+  console.log($t("greet1"));
 };
 document.getElementById("hello1").onclick = function() {
   hello1();
 };
 
 function hello2() {
-  console.log(i18next.t("greet2"));
+  console.log($t("greet2"));
 };
 window.hello2 = hello2;
 
 window.hello3 = function() {
-  console.log(i18next.t("greet3"));
+  console.log($t("greet3"));
 };
 
 // for vue
