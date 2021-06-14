@@ -8,6 +8,7 @@
         <script type="text/javascript" src="/js/hello.bundle.js" th:src="@{/js/hello.bundle.js}" defer></script>
     </head>
     <body>
+        <a href="/link">戻る</a><br/>
         <h1>messages.propertiesからの呼び出しテスト</h1>
         <p th:text="hogehoge"></p>
         <p th:text="${message}"></p>
@@ -16,9 +17,10 @@
         <h1>言語切替フォームテスト</h1>
         <form method="get">
             <select name="lang" onchange="submit(this.form)">
-                <option th:value="ja" th:selected="${#locale.language=='ja'}">日本語</option>
-                <option th:value="en" th:selected="${#locale.language=='en'}">English</option>
+                <option th:each="sl:${supportLanguageMap}" th:value=${sl.key} th:selected="${#locale.language==sl.key}">[[${sl.value}]]</option>
+                <!--/* selectedの部分要調整 */-->
             </select>
+            <input type="hidden" name="hotelCode" th:value=${param.hotelCode}>
         </form>
         <h1>i18nextテスト</h1>
         <input type="button" id="hello1" value="click1" />
