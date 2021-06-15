@@ -3,6 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <title>Hello Thymeleaf</title>
+        <script th:inline="javascript">
+        /*<![CDATA[*/
+            window.locale = /*[[${#locale.toString()}]]*/ 'ja';
+        /*]]>*/
+        </script>
         <script type="text/javascript" src="/js/vendor.bundle.js" th:src="@{/js/vendor.bundle.js}"></script>
         <script type="text/javascript" src="/js/i18next.bundle.js" th:src="@{/js/i18next.bundle.js}"></script>
         <script type="text/javascript" src="/js/hello.bundle.js" th:src="@{/js/hello.bundle.js}" defer></script>
@@ -17,11 +22,12 @@
         <h1>言語切替フォームテスト</h1>
         <form method="get">
             <select name="lang" onchange="submit(this.form)">
-                <option th:each="sl:${supportLanguageMap}" th:value=${sl.key} th:selected="${#locale.language==sl.key}">[[${sl.value}]]</option>
+                <option th:each="sl:${supportLanguageMap}" th:value=${sl.key} th:selected="${#locale.toString()==sl.key}">[[${sl.value}]]</option>
                 <!--/* selectedの部分要調整 */-->
             </select>
             <input type="hidden" name="hotelCode" th:value=${param.hotelCode}>
         </form>
+        <div>[[${#locale.toString()}]]</div>
         <h1>i18nextテスト</h1>
         <input type="button" id="hello1" value="click1" />
         <input type="button" id="hello2" value="click2" onclick="hello2();" />

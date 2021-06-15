@@ -14,20 +14,18 @@ public class HelloController {
 	@GetMapping("/")
 	public String hello(Model model, HttpServletRequest request) {
 		String hotelCode = request.getParameter("hotelCode");
-		LogUtils.error("hotelCode: " + hotelCode);
 		TranslationProject tl = TranslationProject.getTranslationProject(hotelCode);
-		LogUtils.error("tl.supportLanguage: " + Arrays.toString(tl.supportLanguage.toArray()));
 		Map<String,String> supportLanguageMap = new HashMap<>();
 		supportLanguageMap.put("ja", "日本語");
 		for(String sl : tl.supportLanguage){
 			if ("en".equals(sl)) {
 				supportLanguageMap.put("en", "English");
 			}
-			else if ("zh-CN".equals(sl)) {
-				supportLanguageMap.put("zh-CN", "简体中文");
+			else if ("zh_CN".equals(sl)) {
+				supportLanguageMap.put("zh_CN", "简体中文");
 			}
-			else if ("zh-TW".equals(sl)) {
-				supportLanguageMap.put("zh-TW", "繁體中文");
+			else if ("zh_TW".equals(sl)) {
+				supportLanguageMap.put("zh_TW", "繁體中文");
 			}
 			else if ("ko".equals(sl)) {
 				supportLanguageMap.put("ko", "한국어");

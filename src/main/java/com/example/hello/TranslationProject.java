@@ -25,8 +25,8 @@ public class TranslationProject {
 		else if ("0000000004".equals(hotelCode)) {
 			// 多言語対応 すべて
 			sl.add("en");
-			sl.add("zh-CN");
-			sl.add("zh-TW");
+			sl.add("zh_CN");
+			sl.add("zh_TW");
 			sl.add("ko");
 		}
 
