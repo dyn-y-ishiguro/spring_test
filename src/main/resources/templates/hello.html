@@ -23,7 +23,6 @@
         <form method="get">
             <select name="lang" onchange="submit(this.form)">
                 <option th:each="sl:${supportLanguageMap}" th:value=${sl.key} th:selected="${#locale.toString()==sl.key}">[[${sl.value}]]</option>
-                <!--/* selectedの部分要調整 */-->
             </select>
             <input type="hidden" name="hotelCode" th:value=${param.hotelCode}>
         </form>

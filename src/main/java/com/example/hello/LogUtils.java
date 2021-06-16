@@ -3,6 +3,8 @@ package com.example.hello;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// テスト用
+// 本番には不要
 public class LogUtils {
 	protected final static Logger logger = LoggerFactory.getLogger(LogUtils.class);
 	public static void trace(String msg) {

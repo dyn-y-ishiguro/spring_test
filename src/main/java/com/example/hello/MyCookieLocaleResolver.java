@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 
 public class MyCookieLocaleResolver extends CookieLocaleResolver {
+
+	// 言語解決ロジック
+	// １.対象の施設で利用できる言語の設定を取得する
+	// ２.クエリ指定の言語がある場合、１に含まれていればreturn、なければ日本語をreturn
+	// ３.継承元のロジックで言語解決した場合の結果を取得し、１に含まれていればreturn、なければ日本語をreturn
 	@Override
 	public Locale resolveLocale(HttpServletRequest request) {
 		String hotelCode = request.getParameter("hotelCode");

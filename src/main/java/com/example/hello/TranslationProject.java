@@ -3,6 +3,9 @@ package com.example.hello;
 import java.util.List;
 import java.util.ArrayList;
 
+// 対象施設で利用できる言語情報取得のモック
+// 本来はDBから取ってきたデータを利用する
+// リクエスト毎に取得に行くので、cookieに２４時間キャッシュするなど必要？
 public class TranslationProject {
 	public String hotelCode;
 	public List<String> supportLanguage;

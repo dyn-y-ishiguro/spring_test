@@ -26,6 +26,11 @@ public class Application implements WebMvcConfigurer {
 		return messageSource;
 	}
 
+	// 言語解決の方法を指定するために追加
+	// 記述がない場合は、デフォルトでAcceptHeaderLocaleResolverが用いられる
+	// 今回cookieの値をもとに解決したいためCookieLocaleResolverを使うが、
+	// 施設によっては多言語機能を利用しない場合があるので
+	// CookieResolverを継承して制約を加えたものを使う
 	@Bean
 	public LocaleResolver localeResolver() {
 		MyCookieLocaleResolver myCookieLocaleResolver = new MyCookieLocaleResolver();
@@ -34,6 +39,7 @@ public class Application implements WebMvcConfigurer {
 		return myCookieLocaleResolver;
 	}
 
+	// クエリで指定した言語を利用するために追加
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {
 		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -41,6 +47,7 @@ public class Application implements WebMvcConfigurer {
 		return localeChangeInterceptor;
 	}
 
+	// クエリで指定した言語を利用するために追加
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
